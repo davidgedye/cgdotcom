@@ -38,6 +38,7 @@ def load_rows():
             h = item.get("height", "")
             px_w = item.get("px_width") or 0
             px_h = item.get("px_height") or 0
+            aspect = round(w / h, 4) if (w and h) else 0
             rows.append({
                 "year": year,
                 "title": title,
@@ -45,6 +46,7 @@ def load_rows():
                 "width": w,
                 "height": h,
                 "area": (w * h) if (w != "" and h != "") else 0,
+                "aspect": aspect,
                 "description": item["description"],
                 "resolution": f"{px_w} × {px_h}" if px_w else "",
                 "px_area": px_w * px_h,
@@ -62,7 +64,7 @@ def build_row_html(r: dict) -> str:
     )
     return (
         f"    <tr>\n"
-        f"      <td><img src=\"{r['img']}\" alt=\"{r['title']}\" "
+        f"      <td data-sort=\"{r['aspect']}\"><img src=\"{r['img']}\" alt=\"{r['title']}\" "
         f"style=\"height:75px;width:auto;display:block;cursor:zoom-in;\" "
         f"onclick=\"openLightbox(this.src)\"></td>\n"
         f"      <td data-sort=\"{r['year']}\">{r['year']}</td>\n"
@@ -103,6 +105,7 @@ def build_html(rows: list) -> str:
   tr:hover td {{ background: #f5f5f5; }}
   td:first-child {{ padding: 4px; }}
   td:nth-child(2) {{ color: #666; font-size: 15px; }}
+  td:nth-child(2) {{ font-size: 12px; }}
   td:nth-child(6) {{ color: #555; max-width: 320px; font-size: 15px; }}
   .sold {{ color: #999; font-style: italic; }}
 
@@ -131,7 +134,7 @@ def build_html(rows: list) -> str:
 <table id="gallery">
   <thead>
     <tr>
-      <th>Image</th>
+      <th class="sortable" data-col="0" data-type="num">Image</th>
       <th class="sortable" data-col="1" data-type="num">Year</th>
       <th class="sortable" data-col="2" data-type="str">Title</th>
       <th class="sortable" data-col="3" data-type="str">Status</th>
