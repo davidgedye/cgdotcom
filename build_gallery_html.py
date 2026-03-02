@@ -65,12 +65,12 @@ def build_row_html(r: dict) -> str:
         f"      <td><img src=\"{r['img']}\" alt=\"{r['title']}\" "
         f"style=\"height:75px;width:auto;display:block;cursor:zoom-in;\" "
         f"onclick=\"openLightbox(this.src)\"></td>\n"
-        f"      <td data-sort=\"{r['px_area']}\">{r['resolution']}</td>\n"
         f"      <td data-sort=\"{r['year']}\">{r['year']}</td>\n"
         f"      <td>{r['title']}</td>\n"
         f"      <td class=\"{status_class}\">{r['status']}</td>\n"
         f"      <td data-sort=\"{r['area']}\">{dims}</td>\n"
         f"      <td>{r['description']}</td>\n"
+        f"      <td data-sort=\"{r['px_area']}\">{r['resolution']}</td>\n"
         f"    </tr>"
     )
 
@@ -103,7 +103,7 @@ def build_html(rows: list) -> str:
   tr:hover td {{ background: #f5f5f5; }}
   td:first-child {{ padding: 4px; }}
   td:nth-child(2) {{ color: #666; font-size: 15px; }}
-  td:nth-child(7) {{ color: #555; max-width: 320px; font-size: 15px; }}
+  td:nth-child(6) {{ color: #555; max-width: 320px; font-size: 15px; }}
   .sold {{ color: #999; font-style: italic; }}
 
   #lightbox {{
@@ -132,12 +132,12 @@ def build_html(rows: list) -> str:
   <thead>
     <tr>
       <th>Image</th>
-      <th class="sortable" data-col="1" data-type="num">Res.</th>
-      <th class="sortable" data-col="2" data-type="num">Year</th>
-      <th class="sortable" data-col="3" data-type="str">Title</th>
-      <th class="sortable" data-col="4" data-type="str">Status</th>
-      <th class="sortable" data-col="5" data-type="num">Dim.</th>
-      <th class="sortable" data-col="6" data-type="str">Caption</th>
+      <th class="sortable" data-col="1" data-type="num">Year</th>
+      <th class="sortable" data-col="2" data-type="str">Title</th>
+      <th class="sortable" data-col="3" data-type="str">Status</th>
+      <th class="sortable" data-col="4" data-type="num">Dim.</th>
+      <th class="sortable" data-col="5" data-type="str">Caption</th>
+      <th class="sortable" data-col="6" data-type="num">Res.</th>
     </tr>
   </thead>
   <tbody>
@@ -175,7 +175,7 @@ def build_html(rows: list) -> str:
   }});
 
   // Apply default sort (year descending)
-  sortTable(2, 'num');
+  sortTable(1, 'num');
 
   function openLightbox(src) {{
     document.getElementById('lightbox-img').src = src;
