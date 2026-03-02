@@ -31,6 +31,8 @@ def load_rows():
     rows = []
     for manifest in sorted(Path("json").glob("*.json"), reverse=True):
         year = manifest.stem
+        display_year = year
+        sort_year = int(year) if year.isdigit() else 2012
         data = json.loads(manifest.read_text())
         for item in data:
             title, status = parse_status(item["title"], item["description"])
@@ -40,7 +42,8 @@ def load_rows():
             px_h = item.get("px_height") or 0
             aspect = round(w / h, 4) if (w and h) else 0
             rows.append({
-                "year": year,
+                "year": display_year,
+                "sort_year": sort_year,
                 "title": title,
                 "status": status,
                 "width": w,
@@ -67,7 +70,7 @@ def build_row_html(r: dict) -> str:
         f"      <td data-sort=\"{r['aspect']}\"><img src=\"{r['img']}\" alt=\"{r['title']}\" "
         f"style=\"height:75px;width:auto;display:block;cursor:zoom-in;\" "
         f"onclick=\"openLightbox(this.src)\"></td>\n"
-        f"      <td data-sort=\"{r['year']}\">{r['year']}</td>\n"
+        f"      <td data-sort=\"{r['sort_year']}\">{r['year']}</td>\n"
         f"      <td>{r['title']}</td>\n"
         f"      <td class=\"{status_class}\">{r['status']}</td>\n"
         f"      <td data-sort=\"{r['area']}\">{dims}</td>\n"
