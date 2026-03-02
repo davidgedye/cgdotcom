@@ -192,8 +192,8 @@ def main():
         print("No christinegedye_* directories found.")
         return
     html = build_html(rows)
-    Path("gallery.html").write_text(html)
-    print(f"Written gallery.html ({len(rows)} rows)")
+    Path("index.html").write_text(html)
+    print(f"Written index.html ({len(rows)} rows)")
 
 
 if __name__ == "__main__":
