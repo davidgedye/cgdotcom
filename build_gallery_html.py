@@ -63,7 +63,7 @@ def build_row_html(r: dict) -> str:
     return (
         f"    <tr>\n"
         f"      <td><img src=\"{r['img']}\" alt=\"{r['title']}\" "
-        f"style=\"height:100px;width:auto;display:block;cursor:zoom-in;\" "
+        f"style=\"height:75px;width:auto;display:block;cursor:zoom-in;\" "
         f"onclick=\"openLightbox(this.src)\"></td>\n"
         f"      <td data-sort=\"{r['px_area']}\">{r['resolution']}</td>\n"
         f"      <td data-sort=\"{r['year']}\">{r['year']}</td>\n"
@@ -99,11 +99,11 @@ def build_html(rows: list) -> str:
   th.sortable:hover {{ background: #444; }}
   th.asc::after  {{ content: ' ▲'; font-size: 11px; }}
   th.desc::after {{ content: ' ▼'; font-size: 11px; }}
-  td {{ padding: 6px 14px; border-bottom: 1px solid #eee; vertical-align: middle; font-size: 22px; }}
+  td {{ padding: 6px 14px; border-bottom: 1px solid #eee; vertical-align: middle; font-size: 15px; }}
   tr:hover td {{ background: #f5f5f5; }}
   td:first-child {{ padding: 4px; }}
-  td:nth-child(2) {{ color: #666; font-size: 21px; }}
-  td:nth-child(7) {{ color: #555; max-width: 320px; font-size: 22px; }}
+  td:nth-child(2) {{ color: #666; font-size: 15px; }}
+  td:nth-child(7) {{ color: #555; max-width: 320px; font-size: 15px; }}
   .sold {{ color: #999; font-style: italic; }}
 
   #lightbox {{
