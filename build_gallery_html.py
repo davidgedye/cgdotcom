@@ -82,15 +82,18 @@ def build_html(rows: list) -> str:
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Christine Gedye — Gallery Archive</title>
 <style>
   body {{ font-family: sans-serif; font-size: 16px; background: #f9f9f9; color: #222; margin: 0; padding: 24px; }}
   h1 {{ font-size: 1.6em; margin-bottom: 20px; }}
-  table {{ border-collapse: collapse; width: 100%; background: #fff; }}
+  .table-wrap {{ overflow-x: auto; -webkit-overflow-scrolling: touch; }}
+  table {{ border-collapse: collapse; width: 100%; min-width: 700px; background: #fff; }}
+  td {{ word-break: break-word; }}
   th {{
     text-align: left; padding: 10px 14px; background: #222; color: #fff;
-    font-weight: normal; font-size: 22px; position: sticky; top: 0;
-    cursor: default; user-select: none; white-space: nowrap;
+    font-weight: normal; font-size: 15px; position: sticky; top: 0;
+    cursor: default; user-select: none;
   }}
   th.sortable {{ cursor: pointer; }}
   th.sortable:hover {{ background: #444; }}
@@ -99,7 +102,7 @@ def build_html(rows: list) -> str:
   td {{ padding: 6px 14px; border-bottom: 1px solid #eee; vertical-align: middle; font-size: 22px; }}
   tr:hover td {{ background: #f5f5f5; }}
   td:first-child {{ padding: 4px; }}
-  td:nth-child(2) {{ color: #666; font-size: 21px; white-space: nowrap; }}
+  td:nth-child(2) {{ color: #666; font-size: 21px; }}
   td:nth-child(7) {{ color: #555; max-width: 320px; font-size: 22px; }}
   .sold {{ color: #999; font-style: italic; }}
 
@@ -124,15 +127,16 @@ def build_html(rows: list) -> str:
   <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
 </div>
 <h1>Christine Gedye — Gallery Archive ({len(rows)} works)</h1>
+<div class="table-wrap">
 <table id="gallery">
   <thead>
     <tr>
       <th>Image</th>
-      <th class="sortable" data-col="1" data-type="num">Resolution</th>
+      <th class="sortable" data-col="1" data-type="num">Res.</th>
       <th class="sortable" data-col="2" data-type="num">Year</th>
       <th class="sortable" data-col="3" data-type="str">Title</th>
       <th class="sortable" data-col="4" data-type="str">Status</th>
-      <th class="sortable" data-col="5" data-type="num">Dimensions</th>
+      <th class="sortable" data-col="5" data-type="num">Dim.</th>
       <th class="sortable" data-col="6" data-type="str">Caption</th>
     </tr>
   </thead>
@@ -140,6 +144,7 @@ def build_html(rows: list) -> str:
 {html_rows}
   </tbody>
 </table>
+</div>
 <script>
   const tbody = document.querySelector('#gallery tbody');
   let sortCol = -1, sortDir = -1; // default: year descending
