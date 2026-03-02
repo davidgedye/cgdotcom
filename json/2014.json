@@ -1,0 +1,46 @@
+[
+  {
+    "index": 1,
+    "filename": "01_After_the_Frostbite_Regatta.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/56b3d957b654f9d9005a56e2/1470271748426-81PGAXBNIFIG5YNCGZV4/FVFrostbiteRevised24x36%2B%281280x851%29.jpg",
+    "title": "After the Frostbite Regatta",
+    "description": "24 x 36. Oil on linen on panel. 2014.SOLD",
+    "width": 24.0,
+    "height": 36.0,
+    "px_width": 1000,
+    "px_height": 665
+  },
+  {
+    "index": 2,
+    "filename": "02_Fog_Variations_Two_Docks.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/56b3d957b654f9d9005a56e2/1470271793027-DN3EX27K0B6YG6LZ7GPZ/FVTwoDocks18x36%2B%281280x644%29.jpg",
+    "title": "Fog Variations: Two Docks",
+    "description": "18 x 36. Oil on panel.SOLD",
+    "width": 18.0,
+    "height": 36.0,
+    "px_width": 1000,
+    "px_height": 503
+  },
+  {
+    "index": 3,
+    "filename": "03_Green_Lake_Memories.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/56b3d957b654f9d9005a56e2/1470271840570-AJ4EEDL93HF1HD6RDZ7G/GreenLakeMemories18x36%2B%281280x634%29.jpg",
+    "title": "Green Lake Memories",
+    "description": "18 x 36. Oil on panel.Private Commission",
+    "width": 18.0,
+    "height": 36.0,
+    "px_width": 1000,
+    "px_height": 495
+  },
+  {
+    "index": 4,
+    "filename": "04_Mountain_Lake_Morning.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/56b3d957b654f9d9005a56e2/1470271874549-117U4C13ZYNDIDGU48MO/MountainLakeMorning24x18Sm%2B%28851x1024%29%2B%28851x1024%29.jpg",
+    "title": "Mountain Lake Morning",
+    "description": "24 x 20. Oil on linen on panel.SOLD",
+    "width": 24.0,
+    "height": 20.0,
+    "px_width": 831,
+    "px_height": 1000
+  }
+]
